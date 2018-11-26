@@ -2,5 +2,8 @@
  {{name | uppercase }}
 </h4>
 
-<button  (click)="vote(true)">Agree</button>
-<button (click)="vote(false)">Disagree</button>
+<button [disabled]="hasVoted"  (click)="vote(true)">Agree</button>
+<button [disabled]="hasVoted"
+        (click)="vote(false)">Disagree</button>
+
+<i>has voted: {{hasVoted}}</i>

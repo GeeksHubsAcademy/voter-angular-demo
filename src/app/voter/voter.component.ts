@@ -6,10 +6,14 @@ import { Component, EventEmitter, Input, Output } from "@angular/core";
   styleUrls: ["./voter.component.css"]
 })
 export class VoterComponent {
+  hasVoted = false;
   @Input() name: string;
   @Output() voted = new EventEmitter<boolean>();
   vote(agree: boolean) {
-    console.log(this.name, agree);
-    this.voted.emit(agree);
+
+    if(!this.hasVoted) {
+      this.voted.emit(agree);
+      this.hasVoted = true;
+    }
   }
 }
