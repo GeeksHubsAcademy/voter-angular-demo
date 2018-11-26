@@ -3,7 +3,13 @@
   <h1>
      {{ title }}!
   </h1>
-  <!-- <app-voter></app-voter> -->
+  <h2>Should mankind colonize the Universe?</h2>
+  <h3>Agree: {{agreed}}, Disagree: {{disagreed}}</h3>
+  <voter *ngFor="let voter of voters"
+         [name] = "voter"
+         (voted) = "onVoted($event)"
+            >
+  </voter>
 
 </div>
 
